@@ -1,0 +1,19 @@
+{
+  "name": "tank-app",
+  "version": "1.0.0",
+  "description": "Multiplayer Tank Battle",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nghiadt & quynhnd",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "express": "^4.16.3",
+    "msgpack5": "^4.0.2",
+    "pg-promise": "^8.2.2",
+    "phaser": "^2.6.2",
+    "socket.io": "^2.0.4"
+  }
+}

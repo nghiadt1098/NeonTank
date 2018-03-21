@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tank Fighter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="59579220874-bau0l8fiathagktttiuvtm1kba31etgq.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="lib/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="lib/phaser.js" type="text/javascript"></script>
+    <script src="lib/blob.js" type="text/javascript"></script>
+    <script src="lib/canvas-to-blob.js" type="text/javascript"></script>
+    <script src="lib/filesaver.js" type="text/javascript"></script>
+    <script src="lib/embed.js" type="text/javascript"></script>
+    <script src="lib/msgpack.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: black;
+        }
+
+        canvas {
+            margin: 0 auto;
+        }
+
+        #main {
+            background-color: white;
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid gray;
+            border-radius: 20px;
+            position: absolute;
+            top: 35%;
+            bottom: 35%;
+            left: 35%;
+            right: 35%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="main" class="agario-panel">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Enter your nickname</label>
+            <input type="text" class="form-control" id="username" placeholder="Nickname...">
+        </div>
+        <button type="submit" class="btn btn-success" onclick="login('guest')" style="width:100%">Play</button>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    </div>
+
+    <script src="constant.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="sprite.js"></script>
+    <script src="tank.js"></script>
+    <script src="main.js"></script>
+    <script src="authentication.js"></script>
+
+</body>
+
+</html>
