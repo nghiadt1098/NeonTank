@@ -1,1 +1,239 @@
-var _0x439f=['lineTo','quadraticCurveTo','fill','stroke','arc','add','bitmapData','context','shadowColor','shadowBlur','strokeStyle','lineWidth','lineCap','round','black','green','rect','fillRect','red','hsl(',',\x20100%,\x2050%)','yellow','blue','fillStyle','beginPath','moveTo'];(function(_0x3402ad,_0x255550){var _0x3bb359=function(_0x432bb8){while(--_0x432bb8){_0x3402ad['push'](_0x3402ad['shift']());}};_0x3bb359(++_0x255550);}(_0x439f,0x14f));var _0x47a2=function(_0x159eab,_0x1b301e){_0x159eab=_0x159eab-0x0;var _0x5474be=_0x439f[_0x159eab];return _0x5474be;};var bulletSprite;var bulletEnemiesSprite;var tankSprite;var tankEnemiesSprite;var turretSprite;var turretEnemiesSprite;var healthBarSprite;var landSprite;var bloodSupport;var damageSupport;var wallSprite;var expBarSprite;function roundRect(_0x3848c8,_0x5dfcd8,_0x282c78,_0x457438,_0x6c4fa6,_0x8a13c2,_0x21ad5c){_0x3848c8[_0x47a2('0x0')]=_0x21ad5c;_0x3848c8[_0x47a2('0x1')]();_0x3848c8[_0x47a2('0x2')](_0x5dfcd8+_0x8a13c2,_0x282c78);_0x3848c8[_0x47a2('0x3')](_0x5dfcd8+_0x457438-_0x8a13c2,_0x282c78);_0x3848c8[_0x47a2('0x4')](_0x5dfcd8+_0x457438,_0x282c78,_0x5dfcd8+_0x457438,_0x282c78+_0x8a13c2);_0x3848c8[_0x47a2('0x3')](_0x5dfcd8+_0x457438,_0x282c78+_0x6c4fa6-_0x8a13c2);_0x3848c8[_0x47a2('0x4')](_0x5dfcd8+_0x457438,_0x282c78+_0x6c4fa6,_0x5dfcd8+_0x457438-_0x8a13c2,_0x282c78+_0x6c4fa6);_0x3848c8[_0x47a2('0x3')](_0x5dfcd8+_0x8a13c2,_0x282c78+_0x6c4fa6);_0x3848c8[_0x47a2('0x4')](_0x5dfcd8,_0x282c78+_0x6c4fa6,_0x5dfcd8,_0x282c78+_0x6c4fa6-_0x8a13c2);_0x3848c8[_0x47a2('0x3')](_0x5dfcd8,_0x282c78+_0x8a13c2);_0x3848c8[_0x47a2('0x4')](_0x5dfcd8,_0x282c78,_0x5dfcd8+_0x8a13c2,_0x282c78);_0x3848c8[_0x47a2('0x5')]();_0x3848c8[_0x47a2('0x6')]();}function drawLine(_0x181e79,_0x1d5b76,_0x50eb2d,_0x2d4eca,_0x1d7180){_0x181e79[_0x47a2('0x1')]();_0x181e79[_0x47a2('0x2')](_0x1d5b76,_0x50eb2d);_0x181e79[_0x47a2('0x3')](_0x2d4eca,_0x1d7180);_0x181e79[_0x47a2('0x6')]();}function drawCircle(_0x2f4c5d,_0x39125b,_0x5166ad,_0x3ed07a,_0x4d1510){_0x2f4c5d[_0x47a2('0x0')]=_0x4d1510;_0x2f4c5d[_0x47a2('0x1')]();_0x2f4c5d[_0x47a2('0x7')](_0x39125b,_0x5166ad,_0x3ed07a,0x0,0x2*Math['PI']);_0x2f4c5d[_0x47a2('0x5')]();_0x2f4c5d[_0x47a2('0x6')]();}function makeEnemiesTankSprite(_0x4d09fe){tankEnemiesSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](TANK_SIZE,TANK_SIZE);var _0x125ae6=tankEnemiesSprite[_0x47a2('0xa')];_0x125ae6[_0x47a2('0xb')]=_0x4d09fe;_0x125ae6[_0x47a2('0xc')]=0x14;_0x125ae6[_0x47a2('0xd')]=_0x4d09fe;_0x125ae6[_0x47a2('0xe')]=0x4;_0x125ae6[_0x47a2('0xf')]=_0x47a2('0x10');roundRect(_0x125ae6,0x2,0x2,0x5c,0x15,0xa,_0x47a2('0x11'));roundRect(_0x125ae6,0x2,0x49,0x5c,0x15,0xa,_0x47a2('0x11'));drawLine(_0x125ae6,0xe,0x18,0xe,0x48);drawLine(_0x125ae6,0x52,0x18,0x52,0x48);drawCircle(_0x125ae6,0x30,0x30,0x15,_0x4d09fe);_0x125ae6[_0x47a2('0xe')]=0x8;drawLine(_0x125ae6,0x56,0x26,0x56,0x3a);}function makeTankSprite(_0x2228dd){tankSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](TANK_SIZE,TANK_SIZE);var _0x12ba7f=tankSprite[_0x47a2('0xa')];_0x12ba7f[_0x47a2('0xb')]=_0x2228dd;_0x12ba7f[_0x47a2('0xc')]=0x14;_0x12ba7f[_0x47a2('0xd')]=_0x2228dd;_0x12ba7f[_0x47a2('0xe')]=0x4;_0x12ba7f[_0x47a2('0xf')]=_0x47a2('0x10');roundRect(_0x12ba7f,0x2,0x2,0x5c,0x15,0xa,_0x47a2('0x11'));roundRect(_0x12ba7f,0x2,0x49,0x5c,0x15,0xa,_0x47a2('0x11'));drawLine(_0x12ba7f,0xe,0x18,0xe,0x48);drawLine(_0x12ba7f,0x52,0x18,0x52,0x48);drawCircle(_0x12ba7f,0x30,0x30,0x15,_0x2228dd);_0x12ba7f[_0x47a2('0xe')]=0x8;drawLine(_0x12ba7f,0x56,0x26,0x56,0x3a);}function makeEnemiesTurretSprite(_0x2ecdcf){turretEnemiesSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](0x55,0x19);var _0x57060c=turretEnemiesSprite[_0x47a2('0xa')];_0x57060c[_0x47a2('0xb')]=_0x2ecdcf;_0x57060c['shadowBlur']=0x14;_0x57060c[_0x47a2('0xd')]=_0x2ecdcf;_0x57060c[_0x47a2('0xe')]=0x0;roundRect(_0x57060c,0x14,0x5,0x3c,0xf,0x5,_0x2ecdcf);}function makeTurretSprite(_0xb4d269){turretSprite=game['add'][_0x47a2('0x9')](0x55,0x19);var _0xd0e8d7=turretSprite[_0x47a2('0xa')];_0xd0e8d7[_0x47a2('0xb')]=_0xb4d269;_0xd0e8d7[_0x47a2('0xc')]=0x14;_0xd0e8d7[_0x47a2('0xd')]=_0xb4d269;_0xd0e8d7[_0x47a2('0xe')]=0x0;roundRect(_0xd0e8d7,0x14,0x5,0x3c,0xf,0x5,_0xb4d269);}function makeLandSprite(_0x267a30){landSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](0x40,0x40);var _0x3f5ee0=landSprite['context'];_0x3f5ee0[_0x47a2('0xb')]=_0x47a2('0x12');_0x3f5ee0[_0x47a2('0xc')]=0x14;_0x3f5ee0[_0x47a2('0x0')]=_0x47a2('0x11');_0x3f5ee0['strokeStyle']=_0x47a2('0x12');_0x3f5ee0[_0x47a2('0xe')]=0x1;_0x3f5ee0[_0x47a2('0x0')]=invertColor(_0x267a30);_0x3f5ee0[_0x47a2('0x1')]();_0x3f5ee0[_0x47a2('0x13')](0x1,0x1,0x3e,0x3e);_0x3f5ee0[_0x47a2('0x14')](0x1,0x1,0x3e,0x3e);_0x3f5ee0[_0x47a2('0x6')]();}function makeBulletSprite(_0x59a6de){bulletSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](0x12,0x12);var _0x15e1f6=bulletSprite['context'];_0x15e1f6[_0x47a2('0xb')]=_0x59a6de;_0x15e1f6[_0x47a2('0xc')]=0x2;_0x15e1f6[_0x47a2('0xd')]=_0x59a6de;drawCircle(_0x15e1f6,0x9,0x9,0x8,_0x59a6de);}function makeEnemiesBulletSprite(){bulletEnemiesSprite=game['add'][_0x47a2('0x9')](0x12,0x12);var _0x293915=bulletEnemiesSprite[_0x47a2('0xa')];_0x293915[_0x47a2('0xb')]=_0x47a2('0x15');_0x293915['shadowBlur']=0x2;_0x293915[_0x47a2('0xd')]=_0x47a2('0x15');drawCircle(_0x293915,0x9,0x9,0x8,_0x47a2('0x15'));}function makeHealthBarSprite(_0x12879b,_0x1dc616){healthBarSprite=game[_0x47a2('0x8')][_0x47a2('0x9')](0x90,0x14);var _0x39f2e5=healthBarSprite[_0x47a2('0xa')];_0x39f2e5[_0x47a2('0xb')]='red';_0x39f2e5[_0x47a2('0xc')]=0x5;_0x39f2e5[_0x47a2('0xd')]=_0x47a2('0x15');_0x39f2e5[_0x47a2('0xe')]=0x3;_0x39f2e5[_0x47a2('0x1')]();_0x39f2e5[_0x47a2('0x13')](0x0,0x0,0x90,0x14);_0x39f2e5[_0x47a2('0x6')]();var _0xab380e=_0x1dc616/_0x12879b;var _0x296d8f=0x78*_0xab380e;var _0x203756=_0x47a2('0x16')+_0x296d8f+_0x47a2('0x17');_0x39f2e5['fillStyle']=_0x203756;_0x39f2e5[_0x47a2('0xd')]=_0x203756;_0x39f2e5['beginPath']();_0x39f2e5[_0x47a2('0x14')](0x3,0x3,0x8a*_0xab380e,0xe);_0x39f2e5[_0x47a2('0x6')]();resHeartBarSprite={'sprite':healthBarSprite,'context':healthBarSprite[_0x47a2('0xa')]};return resHeartBarSprite;}function makeBloodSupport(){bloodSupport=game[_0x47a2('0x8')][_0x47a2('0x9')](SUPPORT,SUPPORT);var _0x19037d=bloodSupport[_0x47a2('0xa')];_0x19037d['shadowColor']=_0x47a2('0x18');_0x19037d[_0x47a2('0xc')]=0x2;_0x19037d[_0x47a2('0xd')]=_0x47a2('0x18');drawCircle(_0x19037d,SUPPORT/0x2,SUPPORT/0x2,SUPPORT/2.1,_0x47a2('0x11'));_0x19037d[_0x47a2('0xb')]=_0x47a2('0x15');_0x19037d[_0x47a2('0x0')]=_0x47a2('0x15');_0x19037d['strokeStyle']=_0x47a2('0x15');var _0x4a2f6e=0xd;_0x19037d[_0x47a2('0x1')]();_0x19037d['fillRect'](_0x4a2f6e,(SUPPORT-_0x4a2f6e)/0x2,SUPPORT-_0x4a2f6e*0x2,_0x4a2f6e);_0x19037d[_0x47a2('0x14')]((SUPPORT-_0x4a2f6e)/0x2,_0x4a2f6e,_0x4a2f6e,SUPPORT-_0x4a2f6e*0x2);_0x19037d[_0x47a2('0x6')]();}function makeDamageSupport(){damageSupport=game[_0x47a2('0x8')][_0x47a2('0x9')](SUPPORT,SUPPORT);var _0x5b31f9=damageSupport[_0x47a2('0xa')];_0x5b31f9[_0x47a2('0xb')]=_0x47a2('0x18');_0x5b31f9[_0x47a2('0xc')]=0x2;_0x5b31f9[_0x47a2('0x0')]=_0x47a2('0x11');_0x5b31f9[_0x47a2('0xd')]=_0x47a2('0x18');_0x5b31f9[_0x47a2('0x1')]();_0x5b31f9[_0x47a2('0x2')](0x0,SUPPORT);_0x5b31f9[_0x47a2('0x3')](SUPPORT,SUPPORT);_0x5b31f9[_0x47a2('0x3')](SUPPORT/0x2,SUPPORT/7.5);_0x5b31f9[_0x47a2('0x3')](0x0,SUPPORT);_0x5b31f9[_0x47a2('0x5')]();_0x5b31f9[_0x47a2('0x6')]();_0x5b31f9[_0x47a2('0xb')]='red';_0x5b31f9[_0x47a2('0xd')]=_0x47a2('0x15');drawCircle(_0x5b31f9,SUPPORT/0x2,SUPPORT*0.7,SUPPORT/7.5,_0x47a2('0x15'));}function makeWallSprite(_0xdbf1e8,_0x4be992,_0x37bcd1){wallSprite=game[_0x47a2('0x8')]['bitmapData'](_0xdbf1e8,_0x4be992);var _0xbf43f7=wallSprite['context'];_0xbf43f7[_0x47a2('0xb')]=getRandomColor();_0xbf43f7[_0x47a2('0xc')]=0x2;_0xbf43f7[_0x47a2('0xd')]=getRandomColor();roundRect(_0xbf43f7,0x0,0x0,_0xdbf1e8,_0x4be992,_0x37bcd1,getRandomColor());}function makeExpBarSprite(_0xeac39e,_0x51f2ef,_0x5b0656){expBarSprite=game[_0x47a2('0x8')]['bitmapData'](0x4b,0xf);var _0x2e69ff=expBarSprite[_0x47a2('0xa')];_0x2e69ff[_0x47a2('0xb')]=_0x47a2('0x19');_0x2e69ff[_0x47a2('0xd')]='blue';_0x2e69ff['lineWidth']=0x5;_0x2e69ff[_0x47a2('0x1')]();_0x2e69ff[_0x47a2('0x13')](0x0,0x0,0x4b,0xf);_0x2e69ff[_0x47a2('0x6')]();var _0x45972a=_0xeac39e/_0x51f2ef;_0x2e69ff[_0x47a2('0x0')]=_0x5b0656;_0x2e69ff[_0x47a2('0xd')]=_0x5b0656;_0x2e69ff[_0x47a2('0x1')]();_0x2e69ff[_0x47a2('0x14')](0x2,0x2,0x47*_0x45972a,0xb);_0x2e69ff[_0x47a2('0x6')]();}
+var bulletSprite;
+var bulletEnemiesSprite;
+var tankSprite;
+var tankEnemiesSprite;
+var turretSprite;
+var turretEnemiesSprite;
+
+var healthBarSprite;
+var landSprite;
+var bloodSupport;
+var damageSupport;
+var wallSprite;
+var expBarSprite;
+
+function roundRect(context, x, y, w, h, r, color) {
+    context.fillStyle = color;
+    context.beginPath();
+    context.moveTo(x + r, y);
+    context.lineTo(x + w - r, y);
+    context.quadraticCurveTo(x + w, y, x + w, y + r);
+    context.lineTo(x + w, y + h - r);
+    context.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    context.lineTo(x + r, y + h);
+    context.quadraticCurveTo(x, y + h, x, y + h - r);
+    context.lineTo(x, y + r);
+    context.quadraticCurveTo(x, y, x + r, y);
+    context.fill();
+    context.stroke();
+}
+
+function drawLine(context, x1, y1, x2, y2) {
+    context.beginPath();
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+}
+
+function drawCircle(context, x, y, r, color) {
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(x, y, r, 0, 2 * Math.PI);
+    context.fill();
+    context.stroke();
+}
+
+function makeEnemiesTankSprite(color) {
+    tankEnemiesSprite = game.add.bitmapData(TANK_SIZE, TANK_SIZE);
+    var context = tankEnemiesSprite.context;
+
+    context.shadowColor = color;
+    context.shadowBlur = 20;
+    context.strokeStyle = color;
+    context.lineWidth = 4;
+    context.lineCap = 'round';
+
+    roundRect(context, 2, 2, 92, 21, 10, 'black');
+    roundRect(context, 2, 73, 92, 21, 10, 'black');
+    drawLine(context, 14, 24, 14, 72);
+    drawLine(context, 82, 24, 82, 72);
+    drawCircle(context, 48, 48, 21, color);
+    context.lineWidth = 8;
+    drawLine(context, 86, 38, 86, 58);
+}
+
+function makeTankSprite(color) {
+    tankSprite = game.add.bitmapData(TANK_SIZE, TANK_SIZE);
+    var context = tankSprite.context;
+
+    context.shadowColor = color;
+    context.shadowBlur = 20;
+    context.strokeStyle = color;
+    context.lineWidth = 4;
+    context.lineCap = 'round';
+
+    roundRect(context, 2, 2, 92, 21, 10, 'black');
+    roundRect(context, 2, 73, 92, 21, 10, 'black');
+    drawLine(context, 14, 24, 14, 72);
+    drawLine(context, 82, 24, 82, 72);
+    drawCircle(context, 48, 48, 21, color);
+    context.lineWidth = 8;
+    drawLine(context, 86, 38, 86, 58);
+}
+
+function makeEnemiesTurretSprite(color) {
+    turretEnemiesSprite = game.add.bitmapData(85, 25);
+    var context = turretEnemiesSprite.context;
+
+    context.shadowColor = color;
+    context.shadowBlur = 20;
+    context.strokeStyle = color;
+    context.lineWidth = 0;
+    roundRect(context, 20, 5, 60, 15, 5, color);
+}
+
+function makeTurretSprite(color) {
+    turretSprite = game.add.bitmapData(85, 25);
+    var context = turretSprite.context;
+
+    context.shadowColor = color;
+    context.shadowBlur = 20;
+    context.strokeStyle = color;
+    context.lineWidth = 0;
+    roundRect(context, 20, 5, 60, 15, 5, color);
+}
+function makeLandSprite(color) {
+    landSprite = game.add.bitmapData(64, 64);
+    var context = landSprite.context;
+
+    context.shadowColor = 'green';
+    context.shadowBlur = 20;
+    context.fillStyle = 'black';
+    context.strokeStyle = 'green';
+    context.lineWidth = 1;
+    context.fillStyle=invertColor(color);
+    context.beginPath();
+    context.rect(1, 1, 62, 62);
+    context.fillRect(1, 1, 62, 62);
+    context.stroke();
+}
+
+function makeBulletSprite(color) {
+    bulletSprite = game.add.bitmapData(18, 18);
+    var context = bulletSprite.context;
+
+    context.shadowColor = color;
+    context.shadowBlur = 2;
+    context.strokeStyle = color;
+    drawCircle(context, 9, 9, 8, color);
+}
+
+function makeEnemiesBulletSprite() {
+    bulletEnemiesSprite = game.add.bitmapData(18, 18);
+    var context = bulletEnemiesSprite.context;
+
+    context.shadowColor = 'red';
+    context.shadowBlur = 2;
+    context.strokeStyle = 'red';
+    drawCircle(context, 9, 9, 8, 'red');
+}
+
+function makeHealthBarSprite(maxHealth, health) {
+    healthBarSprite = game.add.bitmapData(144, 20);
+    var context = healthBarSprite.context;
+
+    context.shadowColor = 'red';
+    context.shadowBlur = 5;
+    context.strokeStyle = 'red';
+    context.lineWidth = 3;
+    context.beginPath();
+    context.rect(0, 0, 144, 20);
+    context.stroke();
+
+    var ratio = health / maxHealth;
+    var clr = 120 * ratio;
+    var color = 'hsl(' + clr + ', 100%, 50%)';
+
+    context.fillStyle = color;
+    context.strokeStyle = color;
+    context.beginPath();
+    context.fillRect(3, 3, 138 * ratio, 14);
+    context.stroke();
+
+    resHeartBarSprite = {
+        sprite: healthBarSprite,
+        context: healthBarSprite.context,
+    };
+    return resHeartBarSprite;
+}
+
+function makeBloodSupport() {
+    bloodSupport = game.add.bitmapData(SUPPORT, SUPPORT);
+    var context = bloodSupport.context;
+
+    context.shadowColor = 'yellow';
+    context.shadowBlur = 2;
+    context.strokeStyle = 'yellow';
+    drawCircle(context, SUPPORT / 2, SUPPORT / 2, SUPPORT / 2.1, 'black');
+
+    context.shadowColor = 'red';
+    context.fillStyle = 'red';
+    context.strokeStyle = 'red';
+    var size = 13;
+
+    context.beginPath();
+    context.fillRect(size, (SUPPORT - size) / 2, SUPPORT - size * 2, size);
+    context.fillRect((SUPPORT - size) / 2, size, size, SUPPORT - size * 2);
+    context.stroke();
+}
+
+function makeDamageSupport() {
+    damageSupport = game.add.bitmapData(SUPPORT, SUPPORT);
+    var context = damageSupport.context;
+
+    context.shadowColor = 'yellow';
+    context.shadowBlur = 2;
+    context.fillStyle = 'black';
+    context.strokeStyle = 'yellow';
+
+    context.beginPath();
+    context.moveTo(0, SUPPORT);
+    context.lineTo(SUPPORT, SUPPORT);
+    context.lineTo(SUPPORT / 2, SUPPORT / 7.5);
+    context.lineTo(0, SUPPORT);
+    context.fill();
+    context.stroke();
+
+    context.shadowColor = 'red';
+    context.strokeStyle = 'red';
+    drawCircle(context, SUPPORT / 2, SUPPORT * 0.7, SUPPORT / 7.5, 'red');
+}
+
+function makeWallSprite(w, h, r) {
+    wallSprite = game.add.bitmapData(w, h);
+    var context = wallSprite.context;
+
+    context.shadowColor = getRandomColor();
+    context.shadowBlur = 2;
+    context.strokeStyle = getRandomColor();
+    roundRect(context, 0, 0, w, h, r, getRandomColor());
+}
+
+function makeExpBarSprite(exp, maxExp,color) {
+    expBarSprite = game.add.bitmapData(75, 15);
+    var context = expBarSprite.context;
+
+    context.shadowColor = 'blue';
+    context.strokeStyle = 'blue';
+    context.lineWidth = 5;
+    context.beginPath();
+    context.rect(0, 0, 75, 15);
+    context.stroke();
+
+    var ratio = exp / maxExp;
+    context.fillStyle = color;
+    context.strokeStyle = color;
+    context.beginPath();
+    context.fillRect(2, 2, 71 * ratio, 11);
+    context.stroke();
+}

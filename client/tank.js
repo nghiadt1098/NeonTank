@@ -1,1 +1,233 @@
-var _0x5b24=['rotation','arcade','activePointer','left','isDown','currentSpeed','rank_tankspeed','velocityFromRotation','angleToPointer','toString','isAlive','name','color','damage','health','play','rankid','exp','kill','fixedToCamera','healthBar','maxHealth','tank','sprite','tank1','anchor','setTo','score','turret','call','add','angle','set','physics','enable','Physics','ARCADE','body','collideWorldBounds','immovable','bringToTop','update','undefined','damagerate','tween','Easing','Linear','None','tangle','fire','bullets','getFirstExists','reset','velocity','cos','sin','rank_attackrate','nextFire','rank_hitpoint','rank_attack','keyId','drag','maxVelocity','rank_id','rankname','rank_name','fid','gid','avatarurl','maxExp','now','countDead','time','fireRate'];(function(_0x48a574,_0x166857){var _0x452928=function(_0x138f5b){while(--_0x138f5b){_0x48a574['push'](_0x48a574['shift']());}};_0x452928(++_0x166857);}(_0x5b24,0x9d));var _0x185f=function(_0x1752bd,_0x49c3e2){_0x1752bd=_0x1752bd-0x0;var _0x5a4fac=_0x5b24[_0x1752bd];return _0x5a4fac;};var myTank;var tank;var enemies=[];var bullets;var enemyBullets;function getDeltaAngleString(_0x5ada25,_0x1a3818){var _0x1f2624=_0x1a3818-_0x5ada25;if(_0x1f2624>0xb4){_0x1f2624=_0x1f2624-0x168;}else if(_0x1f2624<-0xb4){_0x1f2624=_0x1f2624+0x168;}var _0x3a4a6f=_0x1f2624[_0x185f('0x0')]();if(_0x3a4a6f[0x0]!='-'){_0x3a4a6f='+'+_0x3a4a6f;}return _0x3a4a6f;}function Tank(_0x423dd0,_0x57ebec,_0x269774,_0x5a94c1){this[_0x185f('0x1')]=!![];this['bullets']=_0x5a94c1;this['id']=_0x423dd0;this[_0x185f('0x2')]=_0x57ebec;this['score']=0x0;this[_0x185f('0x3')]=_0x269774;this[_0x185f('0x4')]=function(_0x33449f,_0x31c04){if(this[_0x185f('0x5')]>0x0){this[_0x185f('0x5')]=this[_0x185f('0x5')]-_0x33449f;}if(this['id']==myTank['id']){warning[_0x185f('0x6')]();}if(_0x31c04==myTank['id']){if(this['rankid']>tank['rankid']&&this[_0x185f('0x7')]!=0x68){tank[_0x185f('0x8')]+=this[_0x185f('0x7')]-tank[_0x185f('0x7')];}else{tank[_0x185f('0x8')]++;}sexp[_0x185f('0x9')]();makeExpBarSprite(tank[_0x185f('0x8')],tank['maxExp'],_0x269774);sexp=game['add']['sprite'](0x64,0x3c,expBarSprite,_0x185f('0x8'));sexp[_0x185f('0xa')]=!![];}this[_0x185f('0xb')][_0x185f('0x9')]();var _0x5e9e15=makeHealthBarSprite(this[_0x185f('0xc')],this['health']);this[_0x185f('0xb')]=game['add']['sprite'](this['tank']['x'],this[_0x185f('0xd')]['y'],_0x5e9e15[_0x185f('0xe')],_0x185f('0xf'));this[_0x185f('0xb')][_0x185f('0x10')][_0x185f('0x11')](0.5,-0x3);if(this[_0x185f('0x5')]<=0x0){if(_0x31c04==myTank['id']){tank[_0x185f('0x12')]++;tank[_0x185f('0x8')]+=this['rankid'];}if(this['id']==myTank['id']){lose[_0x185f('0x6')]();}else{kill[_0x185f('0x6')]();}this[_0x185f('0x5')]=0x0;this[_0x185f('0xd')][_0x185f('0x9')]();this[_0x185f('0x13')]['kill']();this[_0x185f('0xb')][_0x185f('0x9')]();this[_0x185f('0x1')]=![];return!![];}return![];};}EnemyTank=function(_0x3d2477,_0x1b52fe,_0x164978,_0x29a799,_0xf5f14f,_0x3b830f,_0x3e7480,_0xb6af1c){Tank[_0x185f('0x14')](this,_0x3d2477,_0x1b52fe,_0x3e7480,_0xb6af1c);makeEnemiesTankSprite(_0x3e7480);makeEnemiesTurretSprite(_0x3e7480);this[_0x185f('0x7')]=_0x3b830f;this[_0x185f('0xd')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x164978,_0x29a799,tankEnemiesSprite,'tank');this[_0x185f('0xd')]['x']=_0x164978;this[_0x185f('0xd')]['y']=_0x29a799;this[_0x185f('0xd')][_0x185f('0x16')]=_0xf5f14f;this[_0x185f('0xd')]['id']=this['id'];this[_0x185f('0xd')]['anchor'][_0x185f('0x17')](0.5,0.5);game[_0x185f('0x18')][_0x185f('0x19')](this[_0x185f('0xd')],Phaser[_0x185f('0x1a')][_0x185f('0x1b')]);this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x1d')]=!![];this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x1e')]=!![];this[_0x185f('0xd')][_0x185f('0x1c')]['moves']=![];this[_0x185f('0x13')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x164978,_0x29a799,turretEnemiesSprite,'turret');this[_0x185f('0x13')]['anchor'][_0x185f('0x11')](0.2,0.5);this['turret'][_0x185f('0x1f')]();var _0x1c2a46=makeHealthBarSprite(0x1,0x1);this[_0x185f('0xb')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x164978,_0x29a799,_0x1c2a46[_0x185f('0xe')],_0x185f('0xf'));this[_0x185f('0xb')][_0x185f('0x10')][_0x185f('0x11')](0.5,-0x3);this[_0x185f('0x20')]=function(_0x53c51d){if(typeof _0x53c51d===_0x185f('0x21')||!this[_0x185f('0x1')]){return-0x1;}this[_0x185f('0x22')]=_0x53c51d[_0x185f('0x22')];game[_0x185f('0x15')][_0x185f('0x23')](this[_0x185f('0xd')])['to']({'x':_0x53c51d['x'],'y':_0x53c51d['y'],'angle':getDeltaAngleString(this[_0x185f('0xd')][_0x185f('0x16')],_0x53c51d['angle'])},INTERVAL,Phaser[_0x185f('0x24')][_0x185f('0x25')][_0x185f('0x26')],!![]);game[_0x185f('0x15')][_0x185f('0x23')](this['turret'])['to']({'x':_0x53c51d['x'],'y':_0x53c51d['y'],'angle':getDeltaAngleString(this[_0x185f('0x13')][_0x185f('0x16')],_0x53c51d[_0x185f('0x27')])},INTERVAL,Phaser['Easing'][_0x185f('0x25')][_0x185f('0x26')],!![]);this[_0x185f('0x5')]=_0x53c51d[_0x185f('0x5')];this[_0x185f('0xc')]=_0x53c51d[_0x185f('0xc')];game[_0x185f('0x15')][_0x185f('0x23')](this[_0x185f('0xb')])['to']({'x':_0x53c51d['x'],'y':_0x53c51d['y']},INTERVAL,Phaser[_0x185f('0x24')][_0x185f('0x25')][_0x185f('0x26')],!![]);};this[_0x185f('0x28')]=function(_0x5d7096,_0x349515,_0x38e3b3){blaster[_0x185f('0x6')]();var _0x55ad27=this[_0x185f('0x29')][_0x185f('0x2a')](![]);_0x55ad27['id']=this['id'];_0x55ad27['damage']=this[_0x185f('0x22')];_0x55ad27[_0x185f('0x2b')](_0x349515,_0x38e3b3);_0x55ad27[_0x185f('0x10')][_0x185f('0x11')](0.5,0.5);_0x55ad27['body'][_0x185f('0x2c')]['x']=Math[_0x185f('0x2d')](_0x5d7096)*BULLET_SPEED;_0x55ad27[_0x185f('0x1c')][_0x185f('0x2c')]['y']=Math[_0x185f('0x2e')](_0x5d7096)*BULLET_SPEED;};};MyTank=function(_0x336856,_0x34da9f,_0x4b9c13,_0xd71e20,_0x34ca42,_0x1e063e,_0x50d94d,_0x161a5d){Tank[_0x185f('0x14')](this,_0x336856,_0x34da9f,_0x1e063e,_0x50d94d);this['fireRate']=_0x161a5d[0x0][_0x185f('0x2f')];this[_0x185f('0x30')]=0x0;this[_0x185f('0xc')]=_0x161a5d[0x0][_0x185f('0x31')];this[_0x185f('0x5')]=_0x161a5d[0x0][_0x185f('0x31')];this['damagerate']=_0x161a5d[0x0][_0x185f('0x32')];this[_0x185f('0xd')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x4b9c13,_0xd71e20,tankSprite,_0x185f('0xd'));this['tank']['x']=_0x4b9c13;this[_0x185f('0xd')]['y']=_0xd71e20;this[_0x185f('0xd')][_0x185f('0x16')]=_0x34ca42;this[_0x185f('0xd')]['id']=this['id'];this[_0x185f('0x33')]=_0x161a5d[0x0]['id'];this['tank']['anchor']['setTo'](0.5,0.5);game[_0x185f('0x18')][_0x185f('0x19')](this[_0x185f('0xd')],Phaser[_0x185f('0x1a')]['ARCADE']);this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x34')][_0x185f('0x17')](0.2);this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x35')][_0x185f('0x11')](0x190,0x190);this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x1d')]=!![];this[_0x185f('0x13')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x4b9c13,_0xd71e20,turretSprite,_0x185f('0x13'));this[_0x185f('0x13')]['anchor']['setTo'](0.2,0.5);this[_0x185f('0x13')][_0x185f('0x1f')]();var _0x52906d=makeHealthBarSprite(0x1,0x1);this[_0x185f('0xb')]=game[_0x185f('0x15')][_0x185f('0xe')](_0x4b9c13,_0xd71e20,_0x52906d[_0x185f('0xe')],_0x185f('0x5'));this[_0x185f('0xb')][_0x185f('0x10')][_0x185f('0x11')](0.5,-0x3);this[_0x185f('0x8')]=_0x161a5d[0x0][_0x185f('0x8')];this['coin']=_0x161a5d[0x0]['coin'];this[_0x185f('0x7')]=_0x161a5d[0x0][_0x185f('0x36')];this[_0x185f('0x37')]=_0x161a5d[0x0][_0x185f('0x38')];this['fid']=_0x161a5d[0x0][_0x185f('0x39')];this[_0x185f('0x3a')]=_0x161a5d[0x0][_0x185f('0x3a')];this['avatar']=_0x161a5d[0x0][_0x185f('0x3b')];this[_0x185f('0x3c')]=_0x161a5d[0x0]['rank_exp'];makeExpBarSprite(this[_0x185f('0x8')],this[_0x185f('0x3c')],_0x1e063e);sexp=game[_0x185f('0x15')][_0x185f('0xe')](0x64,0x3c,expBarSprite,'exp');sexp[_0x185f('0xa')]=!![];this[_0x185f('0x28')]=function(){if(game['time'][_0x185f('0x3d')]>this['nextFire']&&this[_0x185f('0x29')][_0x185f('0x3e')]()>0x0){this['nextFire']=game[_0x185f('0x3f')][_0x185f('0x3d')]+this[_0x185f('0x40')];socket['emit']('fire',this[_0x185f('0x13')][_0x185f('0x41')],this[_0x185f('0x13')]['x'],this[_0x185f('0x13')]['y']);blaster[_0x185f('0x6')]();var _0x2c6702=this['bullets'][_0x185f('0x2a')](![]);_0x2c6702['id']=this['id'];_0x2c6702[_0x185f('0x4')]=this[_0x185f('0x22')];_0x2c6702['reset'](this['turret']['x'],this['turret']['y']);_0x2c6702[_0x185f('0x10')][_0x185f('0x11')](0.5,0.5);_0x2c6702[_0x185f('0x41')]=game['physics'][_0x185f('0x42')]['moveToPointer'](_0x2c6702,BULLET_SPEED,game['input'][_0x185f('0x43')],0x0);}};this[_0x185f('0x20')]=function(){if(!this['isAlive'])return![];if(cursors[_0x185f('0x44')][_0x185f('0x45')]){this[_0x185f('0xd')][_0x185f('0x16')]-=0x4;}if(cursors['right']['isDown']){this[_0x185f('0xd')]['angle']+=0x4;}if(cursors['up'][_0x185f('0x45')]){this[_0x185f('0x46')]=_0x161a5d[0x0][_0x185f('0x47')]*0x2;}if(this[_0x185f('0x46')]>0x0){this[_0x185f('0x46')]-=0x4;game[_0x185f('0x18')][_0x185f('0x42')][_0x185f('0x48')](this['tank'][_0x185f('0x41')],this[_0x185f('0x46')],this[_0x185f('0xd')][_0x185f('0x1c')][_0x185f('0x2c')]);}if(this['exp']>this[_0x185f('0x3c')]){this[_0x185f('0x8')]=this['maxExp'];}this[_0x185f('0x13')]['x']=this['tank']['x'];this[_0x185f('0x13')]['y']=this[_0x185f('0xd')]['y'];this['turret']['rotation']=game[_0x185f('0x18')]['arcade'][_0x185f('0x49')](this[_0x185f('0x13')]);this[_0x185f('0xb')]['x']=this[_0x185f('0xd')]['x'];this[_0x185f('0xb')]['y']=this[_0x185f('0xd')]['y'];if(game['input']['activePointer'][_0x185f('0x45')]&&this[_0x185f('0x1')]){this[_0x185f('0x28')]();}};};
+var myTank;
+var tank;
+var enemies = [];
+var bullets;
+var enemyBullets;
+
+function getDeltaAngleString(oldAngle, newAngle) {
+    var deltaAngle = newAngle - oldAngle;
+    if (deltaAngle > 180) {
+        deltaAngle = deltaAngle - 360;
+    } else if (deltaAngle < -180) {
+        deltaAngle = deltaAngle + 360;
+    }
+
+    var deltaString = deltaAngle.toString();
+    if (deltaString[0] != '-') {
+        deltaString = '+' + deltaString;
+    }
+    return deltaString;
+}
+
+function Tank(id, name, color, bulletGroup) {
+    this.isAlive = true;
+    this.bullets = bulletGroup;
+    this.id = id;
+    this.name = name;
+    this.score = 0;
+    this.color = color;
+
+    this.damage = function (damage, id) {
+        if (this.health > 0) {
+            this.health = this.health - damage;
+        }
+        if(this.id==myTank.id){
+            warning.play();
+        }
+
+        if (id == myTank.id) {
+            if (this.rankid > tank.rankid && this.rankid != 104) {
+                tank.exp += this.rankid - tank.rankid;
+            } else {
+                tank.exp++;
+            }
+            sexp.kill();
+            makeExpBarSprite(tank.exp, tank.maxExp,color);
+            sexp = game.add.sprite(100, 60, expBarSprite, 'exp');
+            sexp.fixedToCamera = true;
+        }
+
+        this.healthBar.kill();
+        var healthBar = makeHealthBarSprite(this.maxHealth, this.health);
+        this.healthBar = game.add.sprite(this.tank.x, this.tank.y, healthBar.sprite, 'tank1');
+        this.healthBar.anchor.setTo(0.5, -3);
+
+        if (this.health <= 0) {
+            if (id == myTank.id) {
+                tank.score++;
+                tank.exp += this.rankid;
+            }
+            if (this.id==myTank.id){
+                lose.play();
+            } else {
+                kill.play();
+            }
+            this.health=0;
+            this.tank.kill();
+            this.turret.kill();
+            this.healthBar.kill();
+            this.isAlive = false;
+            return true;
+        }
+        return false;
+    }
+}
+
+EnemyTank = function (id, name, x, y, angle, rank_id, color, bulletGroup) {
+    Tank.call(this, id, name, color, bulletGroup);
+    makeEnemiesTankSprite(color);
+    makeEnemiesTurretSprite(color);
+    this.rankid = rank_id;
+
+    this.tank = game.add.sprite(x, y, tankEnemiesSprite, 'tank');
+    this.tank.x = x;
+    this.tank.y = y;
+    this.tank.angle = angle;
+    this.tank.id = this.id;
+
+    this.tank.anchor.set(0.5, 0.5);
+    game.physics.enable(this.tank, Phaser.Physics.ARCADE);
+    this.tank.body.collideWorldBounds = true;
+    this.tank.body.immovable = true;
+    this.tank.body.moves = false;
+
+    this.turret = game.add.sprite(x, y, turretEnemiesSprite, 'turret');
+    this.turret.anchor.setTo(0.2, 0.5);
+    this.turret.bringToTop();
+
+    var healthBar = makeHealthBarSprite(1, 1);
+    this.healthBar = game.add.sprite(x, y, healthBar.sprite, 'tank1');
+    this.healthBar.anchor.setTo(0.5, -3);
+
+    this.update = function (stank) {
+        if ((typeof stank === 'undefined') || (!this.isAlive)) {
+            return -1;
+        }
+
+        this.damagerate = stank.damagerate;
+        game.add.tween(this.tank).to({
+            x: stank.x,
+            y: stank.y,
+            angle: getDeltaAngleString(this.tank.angle, stank.angle)
+        }, INTERVAL, Phaser.Easing.Linear.None, true);
+
+        game.add.tween(this.turret).to({
+            x: stank.x,
+            y: stank.y,
+            angle: getDeltaAngleString(this.turret.angle, stank.tangle)
+        }, INTERVAL, Phaser.Easing.Linear.None, true);
+
+
+        this.health = stank.health;
+        this.maxHealth = stank.maxHealth;
+
+        game.add.tween(this.healthBar).to({
+            x: stank.x,
+            y: stank.y
+        }, INTERVAL, Phaser.Easing.Linear.None, true);
+    }
+
+    this.fire = function (trotation, x, y) {
+        blaster.play();
+        var bullet = this.bullets.getFirstExists(false);
+        bullet.id = this.id;
+        bullet.damage = this.damagerate;
+
+        bullet.reset(x, y);
+        bullet.anchor.setTo(0.5, 0.5);
+        bullet.body.velocity.x = Math.cos(trotation) * BULLET_SPEED;
+        bullet.body.velocity.y = Math.sin(trotation) * BULLET_SPEED;
+    }
+}
+
+MyTank = function (id, name, x, y, angle, color, bulletGroup, data) {
+    Tank.call(this, id, name, color, bulletGroup);
+    this.fireRate = data[0].rank_attackrate;
+    this.nextFire = 0;
+    this.maxHealth = data[0].rank_hitpoint;
+    this.health = data[0].rank_hitpoint;
+    this.damagerate = data[0].rank_attack;
+
+    this.tank = game.add.sprite(x, y, tankSprite, 'tank');
+    this.tank.x = x;
+    this.tank.y = y;
+    this.tank.angle = angle;
+    this.tank.id = this.id;
+    this.keyId = data[0].id;
+
+    this.tank.anchor.setTo(0.5, 0.5);
+    game.physics.enable(this.tank, Phaser.Physics.ARCADE);
+    this.tank.body.drag.set(0.2);
+    this.tank.body.maxVelocity.setTo(400, 400);
+    this.tank.body.collideWorldBounds = true;
+
+    this.turret = game.add.sprite(x, y, turretSprite, 'turret');
+    this.turret.anchor.setTo(0.2, 0.5);
+    this.turret.bringToTop();
+
+    var healthBar = makeHealthBarSprite(1, 1);
+    this.healthBar = game.add.sprite(x, y, healthBar.sprite, 'health');
+    this.healthBar.anchor.setTo(0.5, -3);
+
+    //Get Data
+    this.exp = data[0].exp;
+    this.coin = data[0].coin;
+    this.rankid = data[0].rank_id;
+    this.rankname = data[0].rank_name;
+    this.fid = data[0].fid;
+    this.gid = data[0].gid;
+    this.avatar = data[0].avatarurl;
+    this.maxExp = data[0].rank_exp;
+
+    makeExpBarSprite(this.exp, this.maxExp,color);
+    sexp = game.add.sprite(100, 60, expBarSprite, 'exp');
+    sexp.fixedToCamera = true;
+
+    this.fire = function () {
+        if (game.time.now > this.nextFire && this.bullets.countDead() > 0) {
+            this.nextFire = game.time.now + this.fireRate;
+            socket.emit('fire', this.turret.rotation, this.turret.x, this.turret.y);
+            blaster.play();
+            var bullet = this.bullets.getFirstExists(false);
+            bullet.id = this.id;
+            bullet.damage = this.damagerate;
+
+            bullet.reset(this.turret.x, this.turret.y);
+            bullet.anchor.setTo(0.5, 0.5);
+            bullet.rotation = game.physics.arcade.moveToPointer(bullet, BULLET_SPEED, game.input.activePointer, 0);
+        }
+    }
+
+    this.update = function () {
+        if (!this.isAlive)
+            return false;
+
+        if (cursors.left.isDown) {
+            this.tank.angle -= 4;
+        }
+        if (cursors.right.isDown) {
+            this.tank.angle += 4;
+        }
+        if (cursors.up.isDown) {
+            this.currentSpeed = data[0].rank_tankspeed * 2;
+        }
+
+        if (this.currentSpeed > 0) {
+            this.currentSpeed -= 4;
+            game.physics.arcade.velocityFromRotation(this.tank.rotation, this.currentSpeed, this.tank.body.velocity);
+        }
+        if (this.exp > this.maxExp) {
+            this.exp = this.maxExp;
+        }
+
+        this.turret.x = this.tank.x;
+        this.turret.y = this.tank.y;
+        this.turret.rotation = game.physics.arcade.angleToPointer(this.turret);
+        this.healthBar.x = this.tank.x;
+        this.healthBar.y = this.tank.y;
+
+        if ((game.input.activePointer.isDown) && (this.isAlive)) {
+            this.fire();
+        }
+    }
+}

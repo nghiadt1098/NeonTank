@@ -1,1 +1,48 @@
-var _0x3476=['center','font','Arial\x20Black','stroke','black','strokeThickness','0123456789ABCDEF','floor','random','indexOf','slice','length','Invalid\x20HEX\x20color.','toString','join','add','setTo','align'];(function(_0x4795bc,_0x508804){var _0x29d3e7=function(_0x583b81){while(--_0x583b81){_0x4795bc['push'](_0x4795bc['shift']());}};_0x29d3e7(++_0x508804);}(_0x3476,0x171));var _0x2b5c=function(_0x4f2612,_0x3df4bf){_0x4f2612=_0x4f2612-0x0;var _0x6df1c7=_0x3476[_0x4f2612];return _0x6df1c7;};function invertColor(_0x4a3e69){if(_0x4a3e69[_0x2b5c('0x0')]('#')===0x0){_0x4a3e69=_0x4a3e69[_0x2b5c('0x1')](0x1);}if(_0x4a3e69[_0x2b5c('0x2')]===0x3){_0x4a3e69=_0x4a3e69[0x0]+_0x4a3e69[0x0]+_0x4a3e69[0x1]+_0x4a3e69[0x1]+_0x4a3e69[0x2]+_0x4a3e69[0x2];}if(_0x4a3e69[_0x2b5c('0x2')]!==0x6){throw new Error(_0x2b5c('0x3'));}var _0x21f881=(0xff-parseInt(_0x4a3e69['slice'](0x0,0x2),0x10))[_0x2b5c('0x4')](0x10),_0x586361=(0xff-parseInt(_0x4a3e69[_0x2b5c('0x1')](0x2,0x4),0x10))[_0x2b5c('0x4')](0x10),_0x41ae88=(0xff-parseInt(_0x4a3e69[_0x2b5c('0x1')](0x4,0x6),0x10))[_0x2b5c('0x4')](0x10);return'#'+padZero(_0x21f881)+padZero(_0x586361)+padZero(_0x41ae88);}function padZero(_0x3e5978,_0x51d18c){_0x51d18c=_0x51d18c||0x2;var _0xd9ed71=new Array(_0x51d18c)[_0x2b5c('0x5')]('0');return(_0xd9ed71+_0x3e5978)[_0x2b5c('0x1')](-_0x51d18c);}function addText(_0x49cdab,_0x3344b9,_0x112ca0,_0x58a34b,_0x32768f){var _0x3124dc=game[_0x2b5c('0x6')]['text'](_0x49cdab,_0x3344b9,_0x112ca0);_0x3124dc['fixedToCamera']=!![];_0x3124dc['cameraOffset'][_0x2b5c('0x7')](_0x49cdab,_0x3344b9);_0x3124dc[_0x2b5c('0x8')]=_0x2b5c('0x9');_0x3124dc[_0x2b5c('0xa')]=_0x2b5c('0xb');_0x3124dc['fontSize']=_0x58a34b;_0x3124dc[_0x2b5c('0xc')]=_0x2b5c('0xd');_0x3124dc[_0x2b5c('0xe')]=0x1;_0x3124dc['fill']=_0x32768f;return _0x3124dc;}function getRandomColor(){var _0x140231=_0x2b5c('0xf');var _0x185bef='#';for(var _0x3467e6=0x0;_0x3467e6<0x6;_0x3467e6++){_0x185bef+=_0x140231[Math[_0x2b5c('0x10')](0x6+Math[_0x2b5c('0x11')]()*0xa)];}return _0x185bef;}
+
+function invertColor(hex) {
+    if (hex.indexOf('#') === 0) {
+        hex = hex.slice(1);
+    }
+    // convert 3-digit hex to 6-digits.
+    if (hex.length === 3) {
+        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+    if (hex.length !== 6) {
+        throw new Error('Invalid HEX color.');
+    }
+    // invert color components
+    var r = (255 - parseInt(hex.slice(0, 2), 16)).toString(16),
+        g = (255 - parseInt(hex.slice(2, 4), 16)).toString(16),
+        b = (255 - parseInt(hex.slice(4, 6), 16)).toString(16);
+    // pad each with zeros and return
+    return '#' + padZero(r) + padZero(g) + padZero(b);
+}
+
+function padZero(str, len) {
+    len = len || 2;
+    var zeros = new Array(len).join('0');
+    return (zeros + str).slice(-len);
+}
+
+function addText(x, y, str, font,color) {
+    var text = game.add.text(x, y, str);
+    text.fixedToCamera = true;
+    text.cameraOffset.setTo(x, y);
+    text.align = 'center';
+    text.font = 'Arial Black';
+    text.fontSize = font;
+
+    text.stroke = 'black';
+    text.strokeThickness = 1;
+    text.fill = color;
+    return text;
+}
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(6+Math.random() * 10)];
+    }
+    return color;
+      
+  }
