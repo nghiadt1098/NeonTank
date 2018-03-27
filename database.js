@@ -7,11 +7,11 @@ const initOptions = {
 const pgp = require('pg-promise')(initOptions);
 
 const cn = {
-    user: "uttsqhcfymtqoi",
-    password: "00a1af7b0448e626ed81d31d8c6fe18a57597db7737e7f208c976dbee155c919",
-    database: "d8fab6qv9stk7m",
+    user: "",
+    password: "",
+    database: "",
     port: 5432,
-    host: "ec2-54-221-212-15.compute-1.amazonaws.com",
+    host: "",
     ssl: true
 };
 const db = pgp(cn);
