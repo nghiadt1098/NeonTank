@@ -15,10 +15,10 @@ function login(type, authObj) {
 //Facebook login api
 window.fbAsyncInit = function () {
     FB.init({
-        appId: '1635636883182760',
+        appId: '',
         cookie: true,
         xfbml: true,
-        version: 'v2.12'
+        version: ''
     });
     FB.AppEvents.logPageView();
 };
