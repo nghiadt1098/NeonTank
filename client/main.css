@@ -1,0 +1,111 @@
+.g-signin2,#my-signin2{
+  width: 100%;
+}
+
+.g-signin2 > div{
+  margin: 0 auto;
+}
+#my-signin2>div{
+  margin: 0 auto;
+}
+.fb-login-button{
+  width: 100%;
+}
+
+.fb-login-button > div{
+  margin: 0 auto;
+}
+        .button{
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: none;
+  z-index: auto;
+  width: auto;
+  height: auto;
+  position: static;
+  content: ;
+  cursor: default;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  margin: 0;
+  padding: 10px;
+  overflow: visible;
+  border: 0 solid rgba(255,255,255,1);
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  font: normal normal normal 48px/normal "Warnes", Helvetica, sans-serif;
+  color: rgba(255,255,255,1);
+  text-decoration: normal;
+  text-align: center;
+  text-transform: none;
+  text-indent: 0;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  letter-spacing: normal;
+  white-space: pre;
+  word-spacing: normal;
+  word-wrap: ;
+  background: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #ff00de , 0 0 70px #ff00de , 0 0 80px #ff00de , 0 0 100px #ff00de ;
+  -webkit-transition: all 200ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms 0 cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transform:  scaleX(1) scaleY(1) scaleZ(1)  ;
+  -webkit-transform:  scaleX(1) scaleY(1) scaleZ(1)  ;
+  transform:  scaleX(1) scaleY(1) scaleZ(1)  ;
+  -moz-transform-origin: 50% 50% 0;
+  -webkit-transform-origin: 50% 50% 0;
+  transform-origin: 50% 50% 0;
+}
+
+
+.button:hover{
+  text-shadow: 0 0 10px rgba(255,255,255,1) , 0 0 20px rgba(255,255,255,1) , 0 0 30px rgba(255,255,255,1) , 0 0 40px #00ffff , 0 0 70px #00ffff , 0 0 80px #00ffff , 0 0 100px #00ffff ;
+}
+
+
+.element{
+  background-image: url("http://enjoycss.com/bg-img/custom/4163-qmrgsn.png");
+}
+.wrapper{
+  position: reltive;
+   z-index: 999;             
+      border:1px solid red;
+
+     
+  box-sizing: border-box;
+  
+    border: 3px solid #0cd808;
+   box-shadow: 0 0 1px #b3ff51, 0 0 2px #b3ff51, 0 0 6px #b3ff51, 0 0 12px #b3ff51, inset 0 0 1px #b3ff51, inset 0 0 2px #b3ff51, inset 0 0 6px #b3ff51, inset 0 0 12px #b3ff51;
+   
+  }
+  .night-hotel {
+      -webkit-box-sizing: content-box;
+      -moz-box-sizing: content-box;
+      box-sizing: content-box;
+      padding: 20px;
+      border: none;
+      font: normal 15px/1 "Monoton", Helvetica, sans-serif;
+      color: rgba(255,255,255,1);
+      text-align: center;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+      text-shadow: 0 0 10px rgb(255,255,255) , 0 0 20px rgb(255,255,255) , 0 0 30px rgb(255,255,255) , 0 0 40px rgba(0,255,255,1) , 0 0 70px rgba(0,255,255,1) , 0 0 80px rgba(0,255,255,1) , 0 0 100px rgba(0,255,255,1) , 0 0 150px rgba(0,255,255,1) ;
+      -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+      -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+      -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+      transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
+    }
+    
+    .night-hotel:hover {
+      text-shadow: 0 0 5px rgb(255,255,255) , 0 0 10px rgb(255,255,255) , 0 0 15px rgb(255,255,255) , 0 0 20px rgba(0,255,255,1) , 0 0 35px rgba(0,255,255,1) , 0 0 40px rgba(0,255,255,1) , 0 0 50px rgba(0,255,255,1) , 0 0 75px rgba(0,255,255,1) ;
+      -webkit-transform: rotateX(17.76169164905552deg)   ;
+      transform: rotateX(17.76169164905552deg)   ;
+    }

@@ -9,12 +9,13 @@ var encode = msgpack.encode;
 var decode = msgpack.decode;
 
 server.listen(process.env.PORT || 4200);
-app.all('*', function(req, res, next) {
+
+app.all('*', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     next();
- });
- 
+});
+
 app.use(express.static(__dirname + '/client'));
 app.get('/', function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -29,8 +30,6 @@ var tankInfo = [];
 var hallOfFame = [];
 var supportList = [];
 var wallList = [];
-var i, j;
-var numSupport = 1;
 
 (function () {
     setInterval(addSupport, IT_INTERVAL);
@@ -38,8 +37,8 @@ var numSupport = 1;
 })();
 
 function addSupport() {
-    if (numSupport > MAX_SUPPORT) {
-        return -1;
+    if (supportList.length > MAX_SUPPORT) {
+        return;
     }
 
     var item = {
@@ -47,17 +46,11 @@ function addSupport() {
         x: Math.random() * (MAPSIZE - 2 * MINIMAP_SIZE) + MINIMAP_SIZE,
         y: Math.random() * (MAPSIZE - 2 * MINIMAP_SIZE) + MINIMAP_SIZE
     }
-
-    var i = 0;
-    for (; i < supportList.length; i++) {
-        if (typeof supportList[i] === 'undefined') break;
-    }
-    supportList[i] = item;
-    numSupport++;
+    supportList.push(item);
 }
 
 function addWall() {
-    if (wallList.length == MAX_SUPPORT * 2) {
+    if (wallList.length > MAX_SUPPORT * 2) {
         wallList.shift();
     }
 
@@ -73,6 +66,11 @@ function addWall() {
 
 function decodeTank(recv) {
     var stank = {
+        keyId: recv.pop(),
+        exp: recv.pop(),
+        damagerate: recv.pop(),
+        color: recv.pop(),
+        rankid: recv.pop(),
         maxHealth: recv.pop(),
         isAlive: recv.pop(),
         score: recv.pop(),
@@ -90,22 +88,28 @@ function decodeTank(recv) {
 io.on('connection', function (client) {
     itemUpdate = function () {
         hallOfFame = [];
-        console.log(tankInfo);
         for (var i = 0; i < tankInfo.length; i++) {
             if (typeof tankInfo[i] !== 'undefined') {
                 var obj = {
-                    name: tankInfo[i].name,
+                    id: tankInfo[i].id,
                     score: tankInfo[i].score
                 }
                 hallOfFame.push(obj);
             }
         }
+
         hallOfFame.sort(function (a, b) {
             return b.score - a.score;
         });
-        client.emit('item', encode(hallOfFame), supportList, wallList);
+        while (hallOfFame.length > 5) {
+            hallOfFame.pop();
+        }
+
+        client.emit('item', encode(hallOfFame), encode(supportList), encode(wallList));
+
     }
 
+    var i;
     for (i = 0; i < tankInfo.length; i++) {
         if (typeof tankInfo[i] === 'undefined') break;
     }
@@ -113,104 +117,115 @@ io.on('connection', function (client) {
 
     //Create new tank
     client.on('login', function (type, authObject) {
-        var name;
+        type = decode(type);
+        authObject = decode(authObject);
         var tank;
-        console.log(type + " " + authObject);
+        var name;
+        var len;
         switch (type) {
             case 'guest':
                 {
-                    console.log('Guest!'+ authObject);
                     name = authObject;
+                    len = name.length;
+                    if (len >= 9) {
+                        name = '..' + name.substring(len - 7, len);
+                    }
+
                     tank = {
                         id: client.tankid,
-                        name: authObject,
+                        fname: authObject,
+                        name: name,
                         x: Math.random() * MAPSIZE,
                         y: Math.random() * MAPSIZE,
                         angle: Math.random() * 360,
-                        data: {
+                        data: [{
+                            id: -1,
                             exp: 0,
                             coin: 10,
-                            name: name,
+                            name: authObject,
                             rank_id: 1,
-                            fid: null,
-                            gid: null,
-                            description: null,
-                            avatarurl: "tanks/tank.png"
-                        },
+                            rank_name: 'Trainee 1',
+                            rank_hitpoint: 30,
+                            rank_attack: 1,
+                            rank_attackrate: 2000,
+                            rank_tankspeed: 100,
+                            rank_exp: 30
+                        }],
+                        avatarurl: "tanks/tank.png"
                     };
-
                     tankInfo[tank.id] = tank;
-                    console.log(name + ' with id ' + tank.id + ' has connected!');
+                    console.log(tank.name + ' has logged through ' + type);
                     client.emit('logged', encode(tank));
-                    break;
                 }
+                break;
             case 'facebook':
                 {
-                    name = authObject.name.substring(0, 6);
-                    console.log('Facebook!'+ authObject);
+                    name = authObject.name;
+                    len = name.length;
+                    if (len >= 9) {
+                        name = '..' + name.substring(len - 7, len);
+                    }
+
                     db.loginWithFacebook(authObject, function (result) {
-                        //result.avatarurl="http://graph.facebook.com/"+result.fid+"/picture/";
                         tank = {
                             id: client.tankid,
+                            fname: authObject.name,
                             name: name,
                             x: Math.random() * MAPSIZE,
                             y: Math.random() * MAPSIZE,
                             angle: Math.random() * 360,
                             data: result,
-                            avatarurl: "http://graph.facebook.com/" + result.fid + "/picture/"+"?width=80&height=80",
+                            avatarurl: "https://graph.facebook.com/" + result[0].fid + "/picture/" + "?width=80&height=80",
                         };
                         tankInfo[tank.id] = tank;
-                        console.log(name + ' with id ' + tank.id + ' has connected!');
+                        console.log(tank.name + ' has logged through ' + type);
                         client.emit('logged', encode(tank));
-
                     });
-
-                    break;
                 }
+                break;
             case 'google':
                 {
-                    name = authObject.givenname.substring(0, 6);
-                    console.log('Google!'+ authObject);
+                    name = authObject.givenname;
+                    len = name.length;
+                    if (len >= 9) {
+                        name = '..' + name.substring(len - 7, len);
+                    }
+
                     db.loginWithGoogle(authObject, function (result) {
-                        //result.avatarurl=authObject.avatarurl;
                         tank = {
                             id: client.tankid,
+                            fname: authObject.fullname,
                             name: name,
                             x: Math.random() * MAPSIZE,
                             y: Math.random() * MAPSIZE,
                             angle: Math.random() * 360,
                             data: result,
-                            avatarurl: authObject.avatarurl+'?sz=80'
+                            avatarurl: authObject.avatarurl + '?sz=80'
                         };
                         tankInfo[tank.id] = tank;
-                        console.log(name + ' with id ' + tank.id + ' has connected!');
+                        console.log(tank.name + ' has logged through ' + type);
                         client.emit('logged', encode(tank));
-
                     });
-                    break;
                 }
         }
-
-
         setInterval(itemUpdate, UD_INTERVAL);
     });
 
-    //Update tanks
     client.on('send', function (rtank) {
         var tank = decode(rtank);
         tank = decodeTank(tank);
+
         tankInfo[tank.id] = tank;
         client.broadcast.emit('update', rtank);
     });
 
     client.on('pick', function (id) {
-        if (typeof supportList[id] !== 'undefined') {
-            numSupport--;
-            supportList[id] = 'undefined';
+        for (var i = id; i < supportList.length - 1; i++) {
+            supportList[i] = supportList[i + 1];
         }
+        supportList.pop();
     });
 
-    //Fire
     client.on('fire', function (trotation, x, y) {
         client.broadcast.emit('fire trigger', client.tankid, trotation, x, y);
     });
@@ -219,11 +234,12 @@ io.on('connection', function (client) {
         client.broadcast.emit('damaged', id, damage, client.tankid);
     });
 
-    //Disconnect
     client.on('disconnect', function () {
         var id = client.tankid;
-        //console.log(tankInfo[id].name + ' has disconnected!');
-        client.broadcast.emit('remove', id);
-        tankInfo[id] = 'undefined';
+        if (typeof tankInfo[id] !== 'undefined') {
+            db.levelUp(tankInfo[id].keyId, tankInfo[id].exp);
+            client.broadcast.emit('remove', id);
+            tankInfo[id] = undefined;
+        }
     });
 })
